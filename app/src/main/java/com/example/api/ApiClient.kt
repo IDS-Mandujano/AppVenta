@@ -90,7 +90,7 @@ class ApiClient(context: Context) {
                 val pedido = Pedido(
                     id = cursor.getInt(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_ID)),
                     nombre = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_NOMBRE)),
-                    descripcion = cursor.getDouble(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_DESCRIPCION)).toString(),
+                    descripcion = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_DESCRIPCION)),
                     total = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_TOTAL)).ensureDecimalFormat().toDouble()
                 )
                 pedidos.add(pedido) // Agregar a la lista

@@ -13,7 +13,7 @@ class add_producto : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_producto)
 
-        val etNumero = findViewById<EditText>(R.id.etNumero)
+
         val etNombre = findViewById<EditText>(R.id.etNombre)
         val etDescripcion = findViewById<EditText>(R.id.etDescripcion)
         val etTotal = findViewById<EditText>(R.id.etTotal)
@@ -22,29 +22,23 @@ class add_producto : AppCompatActivity() {
 
 
         btnGuardar.setOnClickListener {
-            val numero = etNumero.text.toString()
+
             val nombre = etNombre.text.toString()
-            val descripcion = etDescripcion.text.toString()
+            val descripcion = etDescripcion.toString()
             val total = etTotal.text.toString()
 
             if (nombre.isNotEmpty() && descripcion.isNotEmpty() && total.isNotEmpty()) {
                 // Convertir total a Double
                 val totalDouble = total.toDouble()
-                if (totalDouble != null) {
-                    // Llamar a la función con el parámetro 'numero' agregado
-                    registrarProducto(numero, nombre, descripcion, totalDouble)
-                } else {
-                    Toast.makeText(this, "Total no válido", Toast.LENGTH_SHORT).show()
-                }
+                registrarProducto(nombre, descripcion, totalDouble)
             } else {
-                Toast.makeText(this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    fun registrarProducto(numero: String, nombre: String, descripcion: String, total: Double) {
+    fun registrarProducto( nombre: String, descripcion: String, total: Double) {
         val dbHelper = SheinDB(this)
-        dbHelper.insertarProducto(numero, nombre, descripcion, total) // Asegúrate de que la función insertarProducto acepte el 'numero'
+        dbHelper.insertarProducto(nombre, descripcion, total.toString()) // Asegúrate de que la función insertarProducto acepte el 'numero'
         Toast.makeText(this, "Producto registrado con éxito", Toast.LENGTH_SHORT).show()
     }
 }

@@ -19,15 +19,19 @@ class PedidoAdapter(private val pedidos: List<Pedido>) : RecyclerView.Adapter<Pe
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PedidoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.pedido, parent, false)
         return PedidoViewHolder(view)
+
+
     }
 
     override fun onBindViewHolder(holder: PedidoViewHolder, position: Int) {
         val pedido = pedidos[position]
         holder.idTextView.text = pedido.id.toString() // Asignar el ID
         holder.nombreTextView.text = pedido.nombre // Asignar el nombre
-        holder.descripcionTextView.text = pedido.descripcion.toString() // Asignar la descripción
+        holder.descripcionTextView.text = pedido.descripcion// Asignar la descripción
         holder.totalTextView.text = pedido.total.toString() // Asignar el total
+
     }
+
 
     override fun getItemCount(): Int = pedidos.size
 }

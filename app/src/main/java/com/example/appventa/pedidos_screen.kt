@@ -3,6 +3,7 @@ package com.example.appventa
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,11 @@ class pedidos_screen : AppCompatActivity() {
         apiClient.obtenerPedidos { pedidos ->
             if (pedidos.isNotEmpty()) {
                 val adapter = PedidoAdapter(pedidos)
+
+
+                Toast.makeText(this, "${pedidos}", Toast.LENGTH_LONG).show()
+
+
                 recyclerView.adapter = adapter
             } else {
                 Log.d("pedidos_screen", "No hay pedidos para mostrar")
