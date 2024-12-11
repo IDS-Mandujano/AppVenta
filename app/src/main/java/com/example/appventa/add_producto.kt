@@ -1,5 +1,6 @@
 package com.example.appventa
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -27,7 +28,7 @@ class add_producto : AppCompatActivity() {
         btnGuardar.setOnClickListener {
 
             val nombre = etNombre.text.toString()
-            val descripcion = etDescripcion.toString()
+            val descripcion = etDescripcion.text.toString()
             val total = etTotal.text.toString()
             val codigo = etCodigo.text.toString()
             val empresa = etEmpresa.text.toString()
@@ -36,10 +37,17 @@ class add_producto : AppCompatActivity() {
             if (nombre.isNotEmpty() && descripcion.isNotEmpty() && total.isNotEmpty() && codigo.isNotEmpty() && empresa.isNotEmpty() && fecha.isNotEmpty()) {
                 val totalDouble = total.toDouble()
                 registrarProducto(nombre, descripcion, totalDouble, codigo, empresa, fecha)
+                intentToHome()
             } else {
             }
         }
     }
+
+    private fun intentToHome(){
+        val intent = Intent(this, menu::class.java)
+        startActivity(intent)
+    }
+
 
     fun registrarProducto( nombre: String, descripcion: String, total: Double, codigo : String, empresa : String, fecha : String) {
         val dbHelper = SheinDB(this)
