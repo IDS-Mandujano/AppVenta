@@ -112,7 +112,4 @@ class ApiClient(context: Context) {
             this // Si ya tiene formato correcto, lo dejamos igual.
         }
     }
-
-
-
 }
