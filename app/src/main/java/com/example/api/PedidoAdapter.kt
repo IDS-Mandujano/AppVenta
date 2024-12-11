@@ -25,10 +25,10 @@ class PedidoAdapter(private val pedidos: List<Pedido>) : RecyclerView.Adapter<Pe
 
     override fun onBindViewHolder(holder: PedidoViewHolder, position: Int) {
         val pedido = pedidos[position]
-        holder.idTextView.text = pedido.id.toString() // Asignar el ID
-        holder.nombreTextView.text = pedido.nombre // Asignar el nombre
-        holder.descripcionTextView.text = pedido.descripcion// Asignar la descripción
-        holder.totalTextView.text = pedido.total.toString() // Asignar el total
+        holder.idTextView.text = pedido.id.toString()
+        holder.nombreTextView.text = pedido.nombre
+        holder.descripcionTextView.text = pedido.descripcion
+        holder.totalTextView.text = pedido.total.toString()
 
     }
 

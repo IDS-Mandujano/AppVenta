@@ -22,17 +22,33 @@ class menu : AppCompatActivity() {
 
         val btnDatos: Button = findViewById(R.id.ButtonCatalogo)
         val btnPedidos : Button = findViewById(R.id.ButtonDatos)
+        val btnSeguimiento : Button = findViewById(R.id.ButtonSeguimiento)
 
         btnDatos.setOnClickListener {
-            val intent = Intent(this, add_producto::class.java)
-            startActivity(intent)
+            intentToDatos()
         }
 
         btnPedidos.setOnClickListener {
-            val  intent = Intent(this, pedidos_screen::class.java)
-            startActivity(intent)
+           intentToPedidos()
         }
 
+        btnSeguimiento.setOnClickListener {
+            intentToSeguimiento()
+        }
+    }
 
+    private fun intentToDatos(){
+        val intent = Intent(this, add_producto::class.java)
+        startActivity(intent)
+    }
+
+    private fun intentToPedidos(){
+        val intent = Intent(this, pedidos_screen::class.java)
+        startActivity(intent)
+    }
+
+    private fun intentToSeguimiento(){
+        val intent = Intent(this, seguimiento_screen::class.java)
+        startActivity(intent)
     }
 }

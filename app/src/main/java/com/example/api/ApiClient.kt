@@ -91,7 +91,10 @@ class ApiClient(context: Context) {
                     id = cursor.getInt(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_ID)),
                     nombre = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_NOMBRE)),
                     descripcion = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_DESCRIPCION)),
-                    total = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_TOTAL)).ensureDecimalFormat().toDouble()
+                    total = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_TOTAL)).ensureDecimalFormat().toDouble(),
+                    codigo = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_CODIGO)),
+                    empresa = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_EMPRESA)),
+                    fecha = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_FECHA))
                 )
                 pedidos.add(pedido) // Agregar a la lista
             } while (cursor.moveToNext())

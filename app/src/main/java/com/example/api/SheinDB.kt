@@ -12,7 +12,7 @@ class SheinDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null,
 
     companion object {
         private const val DATABASE_NAME = "productos.db"
-        private const val DATABASE_VERSION = 4
+        private const val DATABASE_VERSION = 5
 
         const val TABLE_USUARIOS = "usuarios"
         const val TABLE_PRODUCTOS = "productos"
