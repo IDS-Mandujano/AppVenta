@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="52dp"
+        android:src="@drawable/tl_brillo"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonSeguimiento"
+        app:layout_constraintEnd_toEndOf="@id/tienda"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="52dp"
+        android:src="@drawable/tl_brillo"
+        app:layout_constraintBottom_toBottomOf="@+id/tienda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/tienda"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
+
+    <ImageView
+        android:id="@+id/tienda"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="52dp"
+        android:src="@drawable/tl_tienda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonSeguimiento"
+        app:layout_constraintVertical_bias="1" />
+
+    <Button
+        android:id="@+id/ButtonSeguimiento"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="320dp"
+        android:padding="16dp"
+        android:text="Seguimiento"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/rosado"
+        />
+
+    <Button
+        android:id="@+id/ButtonDatos"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:text="Pedidos"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ButtonSeguimiento"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/rosado"/>
+    <Button
+        android:id="@+id/ButtonCatalogo"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:text="Datos"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ButtonDatos"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/rosado"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

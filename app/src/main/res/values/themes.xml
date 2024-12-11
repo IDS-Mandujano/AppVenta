@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme for night -->
+    <style name="Base.Theme.AppVenta" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Personaliza tu tema para la noche si es necesario -->
+    </style>
+
+    <style name="Theme.AppVenta" parent="Base.Theme.AppVenta">
+        <!-- Imagen de fondo para la aplicación -->
+        <item name="android:windowBackground">@drawable/background</item> <!-- Imagen de fondo -->
+
+        <!-- Modificar el estilo de los botones -->
+        <item name="android:buttonStyle">@style/ButtonStyle</item> <!-- Estilo de botones personalizado -->
+    </style>
+
+    <!-- Estilo para los botones -->
+    <style name="ButtonStyle">
+        <item name="android:background">@drawable/button_background</item> <!-- Fondo rosado personalizado -->
+        <item name="android:stateListAnimator">@color/colorPressed</item> <!-- Cambiar color al presionar -->
+    </style>
+</resources>

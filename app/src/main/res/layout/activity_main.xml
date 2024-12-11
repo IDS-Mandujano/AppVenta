@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="52dp"
+        android:layout_marginRight="70dp"
+        android:src="@drawable/tl_brillo"
+        app:layout_constraintBottom_toTopOf="@+id/TextUsuario"
+        app:layout_constraintEnd_toEndOf="@id/login"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="1" />
+    
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="52dp"
+        android:src="@drawable/tl_brillo"
+        app:layout_constraintBottom_toTopOf="@+id/TextUsuario"
+        android:layout_marginLeft="70dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/login"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
+
+    <ImageView
+        android:id="@+id/login"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="52dp"
+        android:src="@drawable/login"
+        app:layout_constraintBottom_toTopOf="@+id/TextUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
+
+    <EditText
+        android:id="@+id/TextUsuario"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="320dp"
+        android:ems="14"
+        android:hint="Correo"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColorHint="@color/grisClaro"
+        android:backgroundTint="@color/rosado"
+        android:textColor="@color/grisClaro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/TextPassword"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColorHint="@color/grisClaro"
+        android:backgroundTint="@color/rosado"
+        android:textColor="@color/grisClaro"
+        android:padding="16dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/TextUsuario"
+        app:layout_constraintStart_toStartOf="@+id/TextUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/TextUsuario" />
+
+    <Button
+        android:id="@+id/ButtonIniciarSesion"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:text="Iniciar Sesion"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/rosado"
+        app:layout_constraintStart_toStartOf="@id/TextPassword"
+        app:layout_constraintTop_toBottomOf="@id/TextPassword"/>
+
+    <Button
+        android:id="@+id/ButtonIrRegistrarse"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:text="Registrase "
+        android:textColor="@color/white"
+        android:backgroundTint="@color/rosado"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/ButtonIniciarSesion"
+        app:layout_constraintTop_toBottomOf="@id/ButtonIniciarSesion"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
