@@ -5,12 +5,14 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import android.widget.TableRow
+import java.util.Date
 
 class SheinDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         private const val DATABASE_NAME = "productos.db"
-        private const val DATABASE_VERSION = 3
+        private const val DATABASE_VERSION = 4
 
         const val TABLE_USUARIOS = "usuarios"
         const val TABLE_PRODUCTOS = "productos"
@@ -24,6 +26,9 @@ class SheinDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null,
         const val COLUMN_PRODUCTO_NOMBRE = "producto_nombre"
         const val COLUMN_PRODUCTO_DESCRIPCION = "producto_descripcion"
         const val COLUMN_PRODUCTO_TOTAL = "producto_total"
+        const val COLUMN_PRODUCTO_CODIGO = "producto_codigo"
+        const val COLUMN_PRODUCTO_EMPRESA = "producto_empresa"
+        const val COLUMN_PRODUCTO_FECHA = "producto_fecha"
     }
 
     private val CREATE_TABLE_USUARIOS = """
@@ -39,7 +44,10 @@ class SheinDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null,
             $COLUMN_PRODUCTO_ID INTEGER PRIMARY KEY AUTOINCREMENT, 
             $COLUMN_PRODUCTO_NOMBRE TEXT, 
             $COLUMN_PRODUCTO_DESCRIPCION REAL, 
-            $COLUMN_PRODUCTO_TOTAL TEXT);
+            $COLUMN_PRODUCTO_TOTAL TEXT,
+            $COLUMN_PRODUCTO_CODIGO TEXT,
+            $COLUMN_PRODUCTO_EMPRESA TEXT,
+            $COLUMN_PRODUCTO_FECHA DATE);
     """
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -53,12 +61,15 @@ class SheinDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null,
         onCreate(db)
     }
 
-    fun insertarProducto(nombre: String, descripcion: String, total: String) {
+    fun insertarProducto(nombre: String, descripcion: String, total: String, codigo : String, empresa : String, fecha : String) {
         val db = writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_PRODUCTO_NOMBRE, nombre)
             put(COLUMN_PRODUCTO_DESCRIPCION, descripcion)
             put(COLUMN_PRODUCTO_TOTAL, total)
+            put(COLUMN_PRODUCTO_CODIGO, codigo)
+            put(COLUMN_PRODUCTO_EMPRESA, empresa)
+            put(COLUMN_PRODUCTO_FECHA, fecha)
         }
         val result = db.insert(TABLE_PRODUCTOS, null, values)
         if (result == -1L) {

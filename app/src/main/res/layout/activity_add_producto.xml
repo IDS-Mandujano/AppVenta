@@ -1,4 +1,5 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -6,34 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".add_producto">
 
-    <!-- Pregunta 1: N (Número) -->
-
-    <EditText
-        android:id="@+id/etNumero"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Número"
-        android:inputType="number"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" />
-
-    <!-- Pregunta 2: Nombre -->
     <TextView
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre del Producto"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/etNumero"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"/>
+        android:layout_marginLeft="16dp" />
 
     <EditText
         android:id="@+id/etNombre"
@@ -49,17 +32,42 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp" />
 
-    <!-- Pregunta 3: Descripción -->
+    <TextView
+        android:id="@+id/tvCodigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Código del Producto"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/etNombre"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp" />
+
+    <EditText
+        android:id="@+id/etCodigo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Código"
+        android:inputType="text"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvCodigo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
     <TextView
         android:id="@+id/tvDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Descripción del Producto"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/etNombre"
+        app:layout_constraintTop_toBottomOf="@id/etCodigo"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"/>
+        android:layout_marginLeft="16dp" />
 
     <EditText
         android:id="@+id/etDescripcion"
@@ -75,7 +83,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp" />
 
-    <!-- Pregunta 4: Total -->
     <TextView
         android:id="@+id/tvTotal"
         android:layout_width="wrap_content"
@@ -85,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@id/etDescripcion"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"/>
+        android:layout_marginLeft="16dp" />
 
     <EditText
         android:id="@+id/etTotal"
@@ -99,16 +106,67 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp" />
 
-    <!-- Botón para guardar el producto -->
+    <TextView
+        android:id="@+id/tvEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empresa"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/etTotal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp" />
+
+    <EditText
+        android:id="@+id/etEmpresa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Empresa"
+        android:inputType="text"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvEmpresa"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
+    <TextView
+        android:id="@+id/tvFechaEntrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha de Entrega"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/etEmpresa"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp" />
+
+    <EditText
+        android:id="@+id/etFechaEntrega"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="DD/MM/AAAA"
+        android:inputType="date"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvFechaEntrega"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" />
+
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar"
-        app:layout_constraintTop_toBottomOf="@id/etTotal"
+        app:layout_constraintTop_toBottomOf="@id/etFechaEntrega"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="24dp" />
