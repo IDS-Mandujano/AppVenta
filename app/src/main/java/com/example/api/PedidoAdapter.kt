@@ -29,7 +29,6 @@ class PedidoAdapter(private val pedidos: List<Pedido>) : RecyclerView.Adapter<Pe
         holder.nombreTextView.text = pedido.nombre
         holder.descripcionTextView.text = pedido.descripcion
         holder.totalTextView.text = pedido.total.toString()
-
     }
 
 

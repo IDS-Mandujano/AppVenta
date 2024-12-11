@@ -80,23 +80,33 @@ class ApiClient(context: Context) {
                 SheinDB.COLUMN_PRODUCTO_ID,
                 SheinDB.COLUMN_PRODUCTO_NOMBRE,
                 SheinDB.COLUMN_PRODUCTO_DESCRIPCION,
-                SheinDB.COLUMN_PRODUCTO_TOTAL
+                SheinDB.COLUMN_PRODUCTO_TOTAL,
+                SheinDB.COLUMN_PRODUCTO_CODIGO,
+                SheinDB.COLUMN_PRODUCTO_EMPRESA,
+                SheinDB.COLUMN_PRODUCTO_FECHA
             ),
             null, null, null, null, null
         )
 
-        if (cursor.moveToFirst()) {
+        if (cursor != null && cursor.moveToFirst()) {
             do {
+                val totalString = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_TOTAL))
+                val total = try {
+                    totalString.toDouble()
+                } catch (e: NumberFormatException) {
+                    0.0
+                }
+
                 val pedido = Pedido(
                     id = cursor.getInt(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_ID)),
                     nombre = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_NOMBRE)),
                     descripcion = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_DESCRIPCION)),
-                    total = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_TOTAL)).ensureDecimalFormat().toDouble(),
+                    total = total,
                     codigo = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_CODIGO)),
                     empresa = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_EMPRESA)),
                     fecha = cursor.getString(cursor.getColumnIndexOrThrow(SheinDB.COLUMN_PRODUCTO_FECHA))
                 )
-                pedidos.add(pedido) // Agregar a la lista
+                pedidos.add(pedido)
             } while (cursor.moveToNext())
         }
 
@@ -108,11 +118,11 @@ class ApiClient(context: Context) {
 
     fun String.ensureDecimalFormat(): String {
         return if (!this.contains(".")) {
-            "$this.00" // Si no contiene un punto, agregamos ".00".
+            "$this.00"
         } else if (this.endsWith(".")) {
-            "$this 0" // Si termina en un punto, agregamos un 0.
+            "$this 0"
         } else {
-            this // Si ya tiene formato correcto, lo dejamos igual.
+            this
         }
     }
 
